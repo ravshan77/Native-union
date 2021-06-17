@@ -1,0 +1,116 @@
+.btn {
+  font-family: "monospace";
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid #333;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.btn--white {
+  background: linear-gradient(to left, transparent 50%, #000 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: black;
+  background-color: white;
+}
+
+.btn--white:hover {
+  background-position: left bottom;
+  color: #fff;
+}
+
+.btn--black {
+  background-position: left bottom;
+  color: #fff;
+  background-color: black;
+}
+
+.btn--black:hover {
+  background: linear-gradient(to left, transparent 50%, #000 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: #000;
+}
+
+.btn--medium {
+  padding: 4px;
+  font-size: 16px;
+  width: 150px;
+  height: 40px;
+}
+.btn--large {
+  padding: 6px;
+  font-size: 18px;
+  width: 290px;
+  height: 40px;
+}
+
+.arrows_btns {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: transparent;
+  font-size: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 5px -1px black;
+  z-index: 9;
+}
+
+.section_one {
+  position: absolute;
+  top: 68%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background-color: #fff;
+  z-index: 10;
+}
+
+.section_one:hover {
+  background-color: #000;
+}
+
+.product_corusel_btn {
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 13%;
+  left: 50%;
+}
+
+.product_img_btn {
+  color: #000;
+}
+
+.look_corusel_btn {
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 10%;
+  left: 50%;
+  display: none;
+}
+
+.footer_btn {
+  margin: 25px 0;
+}
+
+@media (min-width: 320px) and (max-width: 568px) {
+  .look_corusel_btn {
+    width: 150px;
+    padding: 2px;
+    font-size: 13px;
+    width: 150px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1100px) {
+  .look_corusel_btn {
+    display: block;
+  }
+}

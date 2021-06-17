@@ -1,0 +1,159 @@
+.Look {
+  width: 92%;
+  height: 100vh;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 45px;
+  border: solid 0.1px #fff;
+}
+.LOOKS_title {
+  text-align: center;
+  font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 3px;
+  margin: 15px 0;
+  margin-bottom: 40px;
+}
+
+/* SLIDER */
+
+.looks_corusel_container {
+  height: var(--heights);
+  width: var(--widths);
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 0;
+  padding-bottom: 40px;
+}
+
+.activeColor {
+  display: block;
+  padding: 5px;
+  height: 380px;
+}
+
+.inactive {
+  display: none;
+}
+
+.look_box {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.look_img_item {
+  width: 50%;
+}
+
+.img {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+}
+
+.color_Box {
+  height: 100%;
+}
+
+.color_Box p {
+  font-family: Mate;
+  letter-spacing: 1.5;
+  font-family: museo-sans, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #000;
+}
+
+.look_img_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.look_slider_item {
+  width: 40%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.w {
+  width: 100%;
+  height: 100%;
+}
+
+.color_item {
+  height: 100%;
+}
+
+.all-dots_look {
+  position: absolute;
+  display: flex;
+  top: 90%;
+  right: 50%;
+  transform: translateX(50%);
+  justify-content: center;
+  z-index: 200;
+}
+
+.dots {
+  cursor: pointer;
+  height: 0.8rem;
+  width: 0.8rem;
+  margin: 0 3px;
+  background-color: rgba(141, 133, 133, 0.5);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.active-dots,
+.dots:hover {
+  background-color: black;
+}
+
+@media screen and (max-width: 1100px) {
+  .Look {
+    margin-bottom: 0;
+  }
+  .look_slider_item {
+    display: none;
+  }
+  .look_img_item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .looks_corusel_container {
+    margin-bottom: 220px;
+  }
+  .look_box {
+    width: 80%;
+  }
+  .LOOKS_title {
+    margin: 20px 0;
+  }
+}
+
+@media (min-width: 568px) and (max-width: 768px) {
+  .looks_corusel_container {
+    margin-bottom: 180px;
+  }
+  .look_box {
+    width: 100%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 568px) {
+  .looks_corusel_container {
+    margin-bottom: 120px;
+  }
+  .look_box {
+    width: 100%;
+  }
+  .LOOKS_title {
+    font-size: 22px;
+  }
+}

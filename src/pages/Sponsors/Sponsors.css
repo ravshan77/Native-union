@@ -1,0 +1,62 @@
+.Sponsors {
+  width: 100%;
+  height: 100%;
+}
+.Sponsors_container {
+  width: 79%;
+  margin: 0 auto;
+}
+
+.sponsor_text_item {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.sponsor_comp_item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 70px;
+}
+
+.sponsor_img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Block*/
+
+.block_text {
+  display: block;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+  opacity: 1;
+  text-transform: none;
+  color: #221f20;
+  letter-spacing: 0.025em;
+  font-size: 17px;
+}
+
+.none_text {
+  display: none;
+  opacity: 0;
+  transition: all opacity 1s ease;
+}
+
+/* Img Block*/
+
+.block_opacity {
+  width: 199px;
+  height: 100%;
+  opacity: 1;
+  margin: 2;
+}
+
+.none_opacity {
+  width: 199px;
+  opacity: 0.4;
+}

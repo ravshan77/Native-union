@@ -1,0 +1,79 @@
+.df {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dn {
+  display: none;
+}
+
+.db {
+  display: block;
+}
+
+.db p {
+  text-align: start;
+  margin-left: 23px;
+}
+
+.menuCard {
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-top: 10px;
+  height: 100vh;
+  color: #fff;
+  z-index: 99999999999999999999999;
+}
+
+.menuCard a {
+  color: #fff;
+  list-style: none;
+}
+
+.menuCard_btnDrop {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.textWithPlus {
+  width: 250px;
+}
+
+.menuTextItem {
+  font-size: 16px;
+  color: #fff;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.menuCard_btnDrop .textWithPlus .df div .db p {
+  font-size: 16px;
+  padding: 4px;
+  padding-left: 7px;
+  color: #fff;
+  opacity: 0.9;
+  border-left: 1px solid #fff;
+}
+
+.Login {
+  color: rgb(145, 141, 141);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu_Card_Icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_Card_Icons a {
+  padding: 10px;
+}

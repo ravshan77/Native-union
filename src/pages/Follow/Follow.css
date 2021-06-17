@@ -1,0 +1,206 @@
+.Follow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-bottom: 140px;
+}
+
+.follow_cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 76%;
+  height: 310px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.follow_cards:hover .follow_card {
+  opacity: 0.5;
+}
+
+.follow_cards .follow_card:hover {
+  opacity: 1;
+}
+
+.add_hidden {
+  overflow: auto;
+  height: 100%;
+}
+
+.hidden_card_btn {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: none;
+}
+
+.follow_card {
+  width: 270px;
+  height: 290px;
+  margin: 9px;
+  position: relative;
+  background-color: black;
+  box-shadow: 1px 1px 5px black;
+  overflow: hidden;
+}
+
+.follow_card ::before {
+  content: " ";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.follow_card span {
+  transition: 0.6;
+  opacity: 0;
+}
+
+.follow_card:hover span {
+  opacity: 1;
+}
+
+.follow_card span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent, #fff);
+  animation: animation1 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animation1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.follow_card span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #fff);
+  animation: animation2 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animation2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.follow_card span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #fff);
+  animation: animation3 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animation3 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.follow_card span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, #fff);
+  animation: animation4 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animation4 {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.follow_card::before {
+  content: "ravshanfayziyev@gmail.com";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  opacity: 0;
+  transition: 0.8s;
+  font-size: 16px;
+}
+
+.follow_card::after {
+  content: "2021.06.10";
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  opacity: 0;
+  font-size: 16px;
+  transition: 0.8s;
+}
+
+.follow_card:hover::before,
+.follow_card:hover::after {
+  opacity: 0.5;
+}
+
+.follow_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .follow_cards {
+    width: 100%;
+  }
+  .Follow {
+    padding-bottom: 90px;
+  }
+  .hidden_card_btn {
+    bottom: 2%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .follow_cards {
+    width: 100%;
+  }
+}
