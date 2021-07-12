@@ -1,0 +1,19 @@
+.two_Store {
+  width: 566px;
+  margin: 0 auto;
+  z-index: -10;
+}
+
+.two_stepper_df {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 0px) and (max-width: 568px) {
+  .two_Store {
+    width: 330px;
+  }
+  .two_stepper_df {
+    flex-direction: column;
+  }
+}

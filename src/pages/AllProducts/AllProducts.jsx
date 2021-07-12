@@ -1,23 +1,20 @@
 import React from "react";
+import Data from "../../service/Api";
+import ModalJon from "../../components/ModalJon/ModalJon"
 import Card from "../../components/Card/Card";
-import data from "../../service/Api";
 
 const AllProducts = () => {
-  const [productName, setProductName] = React.useState("Redmi");
-  let products = data.filter((p) => {
-    return p.title === productName;
-  });
-  if (productName == "pust") {
-    products = data.map((p) => {
-      return p;
-    });
-  }
+  // const data = [];
+
 
   return (
     <div className="products">
-      {products.map((pro) => (
-        <Card product={pro} />
-      ))}
+      <div className="product_cards b">
+        <ModalJon />
+        {Data?.map((product, index) => (
+          <Card {...product} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,19 +1,39 @@
-import React from 'react'
+import React from "react";
+import VanillaTilt from "vanilla-tilt";
+import { useDispatch } from "react-redux";
+import { showModal, modalCard } from "../../store/item/item-action";
 import "./Card.css";
 
-const Card = ({product}) => {
-    console.log(product)
-    return (
-        // <div className="cards b">
-        //     {
-            <div className="card b">
-                <div className="card_img_item b"><img src={product.img}/></div>
-                <p className="card_title b">{product.title}</p>
-                <p className="card_cost b">{product.cost} UZS</p>
-            </div>
-// }
-//         </div>
-    )
-}
+const Card = (product) => {
+  const dispatch = useDispatch();
+  // VanillaTilt Card 
+  VanillaTilt.init(document.querySelectorAll(".c"), {
+    max: "35",
+    speed: 400,
+  });
+  VanillaTilt.init(document.querySelectorAll(".c"));
 
-export default Card
+  return (
+    <div className="card">
+      <div
+        className="card_img_item"
+        onClick={() => dispatch(modalCard({ ...product }))}
+      >
+        <img
+          className="c"
+          onClick={() => dispatch(showModal(true))}
+          src={product?.img}
+        />
+      </div>
+      <p className="card_title">{product?.name}</p>
+      <p className="card_cost">
+        {new Intl.NumberFormat("en-US", { style: "decimal" }).format(
+          product?.cost
+        )}{" "}
+        UZS
+      </p>
+    </div>
+  );
+};
+
+export default Card;

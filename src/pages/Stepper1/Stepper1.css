@@ -1,0 +1,269 @@
+.first_Store {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.calc_item_store {
+  border: solid 1px #555;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.calc_item_store button {
+  width: 100%;
+  height: 100%;
+  color: #555;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.all_Store_data {
+  width: 55%;
+  margin: 0 auto;
+}
+
+.store_korzenkaText {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.topShadov_store {
+  width: 100%;
+  background-color: black;
+  box-shadow: 0px 0px 4px 0.1px black;
+}
+
+.store_scroling {
+  width: 100%;
+  height: 40%;
+  max-height: 400px;
+  margin: 1% auto;
+  overflow: auto;
+}
+
+.store_cards {
+  margin: 1% auto;
+}
+
+.store_cards_items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1%;
+}
+
+.cards_imge_item {
+  width: 13%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cards_imge_item_img {
+  width: 100%;
+  height: 100%;
+}
+
+.cards_label_item {
+  width: 42%;
+}
+
+.cards_label_item_label {
+  font-size: 14.4px;
+  font-weight: bolder;
+  font-family: monospace;
+}
+
+.cards_buttons_item {
+  width: 13%;
+  transform: translateY(25%);
+}
+
+.cards_buttons_item_button {
+  border: solid 1px #555;
+  font-family: monospace;
+  display: flex;
+  justify-content: space-between;
+}
+
+.store_Btns {
+  border: none;
+  background: none;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-family: monospace;
+}
+
+.cards_cost_item {
+  width: 22%;
+}
+
+.proma_code {
+  margin-top: 70px;
+}
+
+.proma_code_input {
+  width: 170px;
+  margin: 0 auto;
+}
+
+.cards_cost_item_text {
+  font-weight: bolder;
+  font-family: monospace;
+  font-size: 14.4px;
+}
+
+.cards_delete_item {
+  width: 6%;
+}
+
+.store_bottom_data {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 5%;
+}
+
+.store_total_Cost {
+  display: flex;
+  align-items: center;
+  text-align: end;
+  font-size: 18px;
+  font-weight: bolder;
+  font-family: monospace;
+  margin-top: 3%;
+}
+
+@media (min-width: 0px) and (max-width: 411px) {
+  .all_Store_data {
+    width: 100%;
+  }
+  .store_bottom_data {
+    margin-top: 5%;
+  }
+  .store_total_Cost {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 14px;
+  }
+  .proma_code_text {
+    font-size: 12px;
+  }
+  .store_korzenkaText {
+    font-size: 19px;
+  }
+  .cards_label_item_label {
+    font-size: 8.3px;
+  }
+  .cards_cost_item_text {
+    font-size: 8.3px;
+  }
+  .store_Btns {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 411px) and (max-width: 568px) {
+  .all_Store_data {
+    width: 100%;
+  }
+  .store_total_Cost {
+    font-size: 16px;
+  }
+  .proma_code_text {
+    font-size: 14px;
+  }
+  .store_korzenkaText {
+    font-size: 22px;
+  }
+  .cards_label_item_label {
+    font-size: 10px;
+  }
+  .cards_cost_item_text {
+    font-size: 10px;
+  }
+  .store_Btns {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 568px) and (max-width: 768px) {
+  .proma_code_text {
+    font-size: 14px;
+  }
+  .all_Store_data {
+    width: 90%;
+  }
+  .store_total_Cost {
+    font-size: 16px;
+  }
+  .store_korzenkaText {
+    font-size: 25px;
+  }
+  .cards_label_item_label {
+    font-size: 12px;
+  }
+  .cards_cost_item_text {
+    font-size: 12px;
+  }
+  .store_Btns {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 960px) {
+  .all_Store_data {
+    width: 80%;
+  }
+  .store_total_Cost {
+    font-size: 19px;
+  }
+  .store_korzenkaText {
+    font-size: 29px;
+  }
+  .cards_label_item_label {
+    font-size: 13px;
+  }
+  .cards_cost_item_text {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1200px) {
+  .proma_code_tex {
+    font-size: 13px;
+  }
+  .all_Store_data {
+    width: 70%;
+  }
+  .store_korzenkaText {
+    font-size: 30px;
+  }
+  .cards_label_item_label {
+    font-size: 14px;
+  }
+  .cards_cost_item_text {
+    font-size: 14px;
+  }
+}
+
+.end_text {
+  width: 80%;
+  margin: 40px auto;
+  text-transform: none;
+  letter-spacing: 1px;
+}

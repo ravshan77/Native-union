@@ -1,3 +1,8 @@
+.footer {
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+
 .footer_container {
   width: 90%;
   margin: 55px auto;
@@ -89,7 +94,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 568px) {
+@media (min-width: 0px) and (max-width: 568px) {
   .footer_item_one {
     display: block;
   }

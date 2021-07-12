@@ -146,13 +146,13 @@ p {
   background-color: rgba(212, 206, 206, 0.6);
 }
 .product_prev {
-  left: 0;
+  left: 1%;
 }
 .product_next {
-  right: 0;
+  right: 1%;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 0px) {
   .product {
     height: 600px;
   }

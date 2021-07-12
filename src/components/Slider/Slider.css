@@ -25,7 +25,6 @@
   width: 100%;
   position: absolute;
   object-fit: cover;
-  /* saty */
   background: rgba(0, 0, 0, 0.65)
     url("http://fc02.deviantart.net/fs71/i/2011/274/6/f/ocean__sky__stars__and_you_by_muddymelly-d4bg1ub.png");
   background-blend-mode: darken;
@@ -91,7 +90,7 @@
   z-index: 9;
 }
 
-@media (min-width: 320px) and (max-width: 568px) {
+@media (min-width: 0px) and (max-width: 568px) {
   .arrow_prev,
   .arrow_next {
     width: 30px;

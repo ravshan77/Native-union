@@ -7,17 +7,26 @@
 .container {
   width: 95%;
   margin: 0 auto;
-  /* border: 1px solid red; */
 }
 
-.displNo{
-  display:none;
+.displNo {
+  display: none;
 }
 
-.main{
-  z-index: 0; 
+.main {
+  z-index: 0;
 }
 
 .background_f {
   background: #fafafa;
+}
+
+a {
+  text-decoration: none;
+}
+
+.filter_back {
+  outline: none;
+  background: none;
+  border: none;
 }

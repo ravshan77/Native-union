@@ -1,26 +1,24 @@
-import { configureStore ,getDefaultMiddleware} from '@reduxjs/toolkit'
-import { persistReducer,FLUSH,REHYDRATE,PAUSE,PERSIST,PURGE,REGISTER } from "redux-persist";
+import Logger from "redux-logger"
+import { createStore, applyMiddleware} from "redux";
+import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"
-import counterSlice from './item/rootReducer'
-
-
+import {rootReducer}  from "./root-reducer"
 
 const persistConfig = {
-    key: 'root',
-    version:1,
+    key : "root",
     storage
-}
+};
 
-const persistedReducer = persistReducer(persistConfig, counterSlice);
+const middleware = [Logger]
 
-const store = configureStore({
-    reducer: persistedReducer,
-    middleware: getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-      }),
-});
 
-export default store;
+const persistedReducer = persistReducer(persistConfig,rootReducer);
+
+const store = createStore(persistedReducer, applyMiddleware(...middleware))
+const persistor = persistStore(store);
+
+
+export {store,persistor};
+
+
 

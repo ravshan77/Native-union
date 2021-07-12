@@ -6,22 +6,21 @@ const Sponsors = () => {
   const len = SponsorData.length - 1;
 
   const [activeIndex, setActiveIndex] = React.useState(0);
-  
+
   useEffect(() => {
-      const interval = setInterval(() =>{
-          setActiveIndex(activeIndex === len ? 0 : activeIndex + 1);
-        },4000)
-        return () => {
-            clearInterval(interval);
-        }
-        
-    },[activeIndex])
+    const interval = setInterval(() => {
+      setActiveIndex(activeIndex === len ? 0 : activeIndex + 1);
+    }, 4000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [activeIndex]);
 
   return (
     <div className="Sponsors">
       {SponsorData.map((sponsorText, indx) => {
         return (
-          <div className="Sponsors_container">
+          <div className="Sponsors_container" key={indx}>
             <div className="sponsor_text_item">
               <p className={activeIndex == indx ? "block_text" : "none_text"}>
                 {sponsorText.text}
@@ -35,9 +34,11 @@ const Sponsors = () => {
           {SponsorData.map((sponsorIcon, ind) => {
             return (
               <div
+                key={ind}
                 className={
                   activeIndex == ind ? "block_opacity" : "none_opacity"
-                } onClick={() => setActiveIndex(ind)}
+                }
+                onClick={() => setActiveIndex(ind)}
               >
                 <img className="sponsor_img" src={sponsorIcon.img} />
               </div>

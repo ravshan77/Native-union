@@ -2,6 +2,7 @@
   width: 74%;
   margin: 0 auto;
   position: relative;
+  padding: 40px;
 }
 
 .Journal_title {
@@ -78,7 +79,7 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 320px) and (max-width: 411px) {
+@media screen and (min-width: 0px) and (max-width: 411px) {
   .journal {
     width: 100%;
   }
@@ -87,7 +88,7 @@
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 1100px) {
+@media screen and (min-width: 0px) and (max-width: 1100px) {
   .journal_card_title {
     margin: 20px 0;
     height: 60px;

@@ -146,7 +146,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 568px) {
+@media (min-width: 0px) and (max-width: 568px) {
   .looks_corusel_container {
     margin-bottom: 120px;
   }

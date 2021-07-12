@@ -1,0 +1,119 @@
+.modal_card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: none;
+}
+
+.modal_card_img {
+  width: 45%;
+  height: 100%;
+  margin: auto 0;
+  border: 1px solid #ccc;
+}
+
+.modal_card_img img {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.modal_card_info {
+  width: 55%;
+  border: 1px solid solid #ccc;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 2%;
+}
+
+.modal_info_text {
+  font-size: 17px;
+  text-transform: none;
+  text-align: start;
+  font-family: "Crimson Text", serif;
+  font-weight: 500;
+}
+
+.modal_card_name {
+  font-size: 18px;
+}
+
+.modal_btn_group {
+  width: 235px;
+  height: 80px;
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+}
+
+.btn_group_cost {
+  height: 50%;
+  border: 1px solid #ccc;
+}
+
+.btn_group_cost p {
+  font-size: 17px;
+}
+
+.btn_group_calc {
+  height: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+
+.btn_group_calc .btn_clack {
+  width: 40px;
+  height: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.btn_group_calc span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal_close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media (min-width: 00px) and (max-width: 600px) {
+  .modal_card {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .modal_card_img {
+    width: 75%;
+    height: 50%;
+    margin: 0 auto;
+  }
+  .modal_card_info {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    position: inherit;
+  }
+
+  .modal_btn_group {
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  .modal_info_text {
+    text-align: center;
+    font-size: 14px;
+  }
+}

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect ,useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import "./MenuCard.css";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
@@ -11,14 +10,21 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TelegramIcon from "@material-ui/icons/Telegram";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import SearchIcon from "@material-ui/icons/Search";
+import "./MenuCard.css";
+import {useTranslation} from "react-i18next"
 
-const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles(() => ({
   IconButton: {
     color: "#FFF",
   },
+  searchIcon: {
+    color: "#000",
+  },
 }));
 
-export default function MenuCard() {
+export default function MenuCard({ setMenuCardDiv }) {
   const classes = useStyles();
 
   // store Menu Button
@@ -30,7 +36,6 @@ export default function MenuCard() {
     setOpenOne((prev) => !prev);
     setOpenTwo(false);
     setOpenThree(false);
-    console.log("bbbbbbbbbbbb")
   };
 
   const handleClickTwo = () => {
@@ -102,71 +107,102 @@ export default function MenuCard() {
   };
 
   // Language
-  const [language, setLanguage] = React.useState("english");
+  const [language, setLanguage] = React.useState("en");
+  const {t,i18n} = useTranslation()
+  useEffect(() => {
+    if (language == "en") {
+      i18n.changeLanguage("en")
+    } else{
+      i18n.changeLanguage("ру")
+    }
+  },[language])
+
+  // Search Product
+  const [searchProduct, setSearchProduct] = useState("");
+
+  const handleSreache = (e) => {
+    setSearchProduct(e.target.value);
+  };
+
 
   return (
     <>
       <div className="menuCard">
         <div className="menuCard_btnDrop">
           <div className="textWithPlus">
-            <h4 onClick={handleClickOne}>Shop By Collection</h4>
+            <h4 onClick={handleClickOne}>{t("dropdown1")}</h4>
             <div onClick={handleShop} className={`${openOne ? "df" : "dn"}`}>
               <div>
-                <h4 className="menuTextItem">- Shop</h4>
-                <div className={`${shop ? "db" : "dn"}`}>
-                  <p>- All Products</p>
-                  <p>- Best Selices</p>
-                  <p>- New Releases</p>
-                  <p>- Last Change To Buy</p>
-                  <p>- Wireless Change</p>
-                  <p>- MagSafe Accesuares </p>
-                  <p>- Multi-Drivece Wireless Charges</p>
-                  <p>- Single Driver Wireles Charges</p>
-                  <p>- Portople Wireles Charger</p>
-                </div>
+                <h4 className="menuTextItem">- {t("shop")}</h4>
+                <Link
+                  onClick={(prev) => setMenuCardDiv(!prev)}
+                  to="/allProducts"
+                >
+                  {" "}
+                  <div className={`${shop ? "db" : "dn"}`}>
+                    <p>- {t("ALL PRODUCTS")}</p>
+                    <p>- {t("BEST SELICES")}</p>
+                    <p>- {t("NEW RELEASES")}</p>
+                    <p>- {t("LAST CHANGE TO BUY")}</p>
+                    <p>- {t("WIRELESS CHANGE")}</p>
+                    <p>- {t("MAGSAFE ACCESUARES")} </p>
+                    <p>- {t("MULTI-DRIVECE WIRELESS CHARGES")}</p>
+                    <p>- {t("SINGLE DRIVER WIRELES CHARGES")}</p>
+                    <p>- {t("PORTOPLE WIRELES CHARGER")}</p>
+                  </div>
+                </Link>
               </div>
               <h3>{shop ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
             <div onClick={handleProtect} className={`${openOne ? "df" : "dn"}`}>
               <div>
-                <h4 className="menuTextItem">- Protect & Carry</h4>
-                <div className={`${protect ? "db" : "dn"}`}>
-                  <p>- Iphone Casses</p>
-                  <p>- AirPods Casses</p>
-                  <p>- Ipad Selices</p>
-                  <p>- MacBook Seelvces</p>
-                  <p>- Accesuary Organizes</p>
-                  <p>- Iphone Sceern Protector</p>
-                </div>
+                <h4 className="menuTextItem">- Xiaomi Redmi</h4>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/phone">
+                  {" "}
+                  <div className={`${protect ? "db" : "dn"}`}>
+                    <p>- Xiaomi Casses</p>
+                    <p>- Redmi Casses</p>
+                    <p>- Xiaomi Selices</p>
+                    <p>- Xiaomi Seelvces</p>
+                    <p>- Xiaomi MI Organizes</p>
+                    <p>- Redmi Sceern Protector</p>
+                  </div>
+                </Link>
               </div>
               <h3>{protect ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
             <div onClick={handleCables} className={`${openOne ? "df" : "dn"}`}>
               <div>
                 <h4 className="menuTextItem">- Cables</h4>
-                <div className={`${cables ? "db" : "dn"}`}>
-                  <p>- USB-A to Linghting</p>
-                  <p>- USB-C to Linghting</p>
-                  <p>- USB-C to USB-C</p>
-                  <p>- Unversal Cabel</p>
-                  <p>- USB-A to USB-C</p>
-                  <p>- Apple Watch Cabel</p>
-                  <p>- Audio & Video</p>
-                  <p>- Which Cabel Do I Need</p>
-                </div>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/cabeles">
+                  {" "}
+                  <div className={`${cables ? "db" : "dn"}`}>
+                    <p>- USB-A to Linghting</p>
+                    <p>- USB-C to Linghting</p>
+                    <p>- USB-C to USB-C</p>
+                    <p>- Unversal Cabel</p>
+                    <p>- USB-A to USB-C</p>
+                    <p>- Apple Watch Cabel</p>
+                    <p>- Audio & Video</p>
+                    <p>- Which Cabel Do I Need</p>
+                  </div>{" "}
+                </Link>
               </div>
               <h3>{cables ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
             <div onClick={handlePower} className={`${openOne ? "df" : "dn"}`}>
               <div>
-                <h4 className="menuTextItem">- Power Soucres</h4>
-                <div className={`${power ? "db" : "dn"}`}>
-                  <p>- Wall Charges</p>
-                  <p>- Power Banks</p>
-                  <p>- Car Charges</p>
-                  <p>- HUBS</p>
-                  <p>- USB-Charge Smart Hub</p>
-                </div>
+                <h4 className="menuTextItem">- Acer</h4>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/notebook">
+                  {" "}
+                  <div className={`${power ? "db" : "dn"}`}>
+                    <p>- Acer Pro 7</p>
+                    <p>- Acer Air3</p>
+                    <p>- Acer Gameing Pro</p>
+                    <p>- NoteBook ACER</p>
+                    <p>- Acer NoteBook Laptop 15</p>
+                  </div>
+                </Link>
               </div>
               <h3>{power ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
@@ -178,62 +214,71 @@ export default function MenuCard() {
         <hr />
         <div className="menuCard_btnDrop">
           <div className="textWithPlus">
-            <h4 onClick={handleClickTwo}>Shop By Device</h4>
+            <h4 onClick={handleClickTwo}>{t("dropdown2")}</h4>
             <div onClick={handleIphone} className={`${openTwo ? "df" : "dn"}`}>
               <div>
                 <h4 className="menuTextItem">- Iphone</h4>
-                <div className={`${iphone ? "db" : "dn"}`}>
-                  <p>- Iphone 12 mine</p>
-                  <p>- Iphone 12</p>
-                  <p>- Iphone 12 Pro</p>
-                  <p>- Iphone 12 Pro Max</p>
-                  <p>- Iphone 11 Pro</p>
-                  <p>- Iphone 11</p>
-                  <p>- Iphone 11 Pro Max</p>
-                </div>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/phone">
+                  {" "}
+                  <div className={`${iphone ? "db" : "dn"}`}>
+                    <p>- Iphone 12 mine</p>
+                    <p>- Iphone 12</p>
+                    <p>- Iphone 12 Pro</p>
+                    <p>- Iphone 12 Pro Max</p>
+                    <p>- Iphone 11 Pro</p>
+                    <p>- Iphone 11</p>
+                    <p>- Iphone 11 Pro Max</p>
+                  </div>{" "}
+                </Link>
               </div>
               <h3>{iphone ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
             <div onClick={handleAirPods} className={`${openTwo ? "df" : "dn"}`}>
               <div>
                 <h4 className="menuTextItem">- AirPods</h4>
-                <div className={`${airPods ? "db" : "dn"}`}>
-                  <p>- Iphone Xs</p>
-                  <p>- Iphone XR</p>
-                  <p>- Iphone Xs Max</p>
-                  <p>- Iphone SE</p>
-                  <p>- AirPods</p>
-                  <p>- AirPods Pro</p>
-                  <p>- AirPods Gen 1 & 2</p>
-                </div>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/airPods">
+                  <div className={`${airPods ? "db" : "dn"}`}>
+                    <p>- Iphone Xs</p>
+                    <p>- Iphone XR</p>
+                    <p>- Iphone Xs Max</p>
+                    <p>- Iphone SE</p>
+                    <p>- AirPods</p>
+                    <p>- AirPods Pro</p>
+                    <p>- AirPods Gen 1 & 2</p>
+                  </div>
+                </Link>
               </div>
               <h3>{airPods ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
             <div onClick={handleIpad} className={`${openTwo ? "df" : "dn"}`}>
               <div>
-                <h4 className="menuTextItem">- Ipad</h4>
-                <div className={`${ipad ? "db" : "dn"}`}>
-                  <p>- Ipad Pro 11"</p>
-                  <p>- Ipad Pro 12.9"</p>
-                  <p>- Ipad Air (4th Gen)</p>
-                  <p>- Ipad (7th & 8th Gen)</p>
-                  <p>- Apple Watch</p>
-                  <p>- Apple Watch (38mm / 40mm)</p>
-                  <p>- Apple Watch (40mm / 42mm)</p>
-                </div>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/phone">
+                  <h4 className="menuTextItem">- Ipad</h4>
+                  <div className={`${ipad ? "db" : "dn"}`}>
+                    <p>- Ipad Pro 11"</p>
+                    <p>- Ipad Pro 12.9"</p>
+                    <p>- Ipad Air (4th Gen)</p>
+                    <p>- Ipad (7th & 8th Gen)</p>
+                    <p>- Apple Watch</p>
+                    <p>- Apple Watch (38mm / 40mm)</p>
+                    <p>- Apple Watch (40mm / 42mm)</p>
+                  </div>{" "}
+                </Link>
               </div>
               <h3>{ipad ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
             <div onClick={handleMac} className={`${openTwo ? "df" : "dn"}`}>
               <div>
                 <h4 className="menuTextItem">- Mac</h4>
-                <div className={`${mac ? "db" : "dn"}`}>
-                  <p>- 12' MacBooks</p>
-                  <p>- 13' MacBooks</p>
-                  <p>- 15' MacBooks</p>
-                  <p>- 16' MacBooks</p>
-                  <p>- IMac 24'</p>
-                </div>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/notebook">
+                  <div className={`${mac ? "db" : "dn"}`}>
+                    <p>- 12' MacBooks</p>
+                    <p>- 13' MacBooks</p>
+                    <p>- 15' MacBooks</p>
+                    <p>- 16' MacBooks</p>
+                    <p>- IMac 24'</p>
+                  </div>
+                </Link>
               </div>
               <h3>{mac ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
@@ -245,20 +290,22 @@ export default function MenuCard() {
         <hr />
         <div className="menuCard_btnDrop">
           <div className="textWithPlus">
-            <h4 onClick={handleClickThree}>Explore</h4>
+            <h4 onClick={handleClickThree}>{t("dropdown3")}</h4>
             <div
               onClick={handleCollision}
               className={`${openThree ? "df" : "dn"}`}
             >
               <div>
-                <h4 className="menuTextItem">- Collisions</h4>
-                <div className={`${collisions ? "db" : "dn"}`}>
-                  <p>- The Heritage colloction</p>
-                  <p>- Sage Collection</p>
-                  <p>- Class Latther Collision</p>
-                  <p>- PD Charning Collection</p>
-                  <p>- Work Home Collection</p>
-                </div>
+                <h4 className="menuTextItem">- {t("Collection")}</h4>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/journal">
+                  <div className={`${collisions ? "db" : "dn"}`}>
+                    <p>- {t("The Heritage")}</p>
+                    <p>- {t("Sage Collection")}</p>
+                    <p>- {t("Class Latther Collision")}</p>
+                    <p>- {t("PD Charning Collection")}</p>
+                    <p>- {t("Work Home Collection")}</p>
+                  </div>{" "}
+                </Link>
               </div>
               <h3>{collisions ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
@@ -267,12 +314,15 @@ export default function MenuCard() {
               className={`${openThree ? "df" : "dn"}`}
             >
               <div>
-                <h4 className="menuTextItem">- Collabors</h4>
-                <div className={`${collabitrions ? "db" : "dn"}`}>
-                  <p>- Masion Kitsune x Nateve Union</p>
-                  <p>- Tom Dixon x Nateve Union</p>
-                  <p>- La Boite Conopet x Nateve</p>
-                </div>
+                <h4 className="menuTextItem">- {t("Collabitrions")}</h4>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/journal">
+                  {" "}
+                  <div className={`${collabitrions ? "db" : "dn"}`}>
+                    <p>- {t("Masion Kitsune x Nateve Union")}</p>
+                    <p>- {t("Tom Dixon x Nateve Union")}</p>
+                    <p>- {t("La Boite Conopet x Nateve")}</p>
+                  </div>
+                </Link>
               </div>
               <h3>
                 {collabitrions ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}
@@ -283,10 +333,13 @@ export default function MenuCard() {
               className={`${openThree ? "df" : "dn"}`}
             >
               <div>
-                <h4 className="menuTextItem">- Jurnal</h4>
-                <div className={`${jurnal ? "db" : "dn"}`}>
-                  <p>- Discover Over Jurnal</p>
-                </div>
+                <h4 className="menuTextItem">- {t("JournaL")}</h4>
+                <Link onClick={(prev) => setMenuCardDiv(!prev)} to="/journal">
+                  {" "}
+                  <div className={`${jurnal ? "db" : "dn"}`}>
+                    <p>- {t("Discover Over Jurnal")}</p>
+                  </div>
+                </Link>
               </div>
               <h3>{jurnal ? <ArrowDropDownIcon /> : <ArrowLeftIcon />}</h3>
             </div>
@@ -296,11 +349,31 @@ export default function MenuCard() {
           </h3>
         </div>
         <hr />
-        <Link className={classes.Link}>
+        <Link
+          onClick={(prev) => setMenuCardDiv(!prev)}
+          className={classes.Link}
+        >
           {" "}
           <h3 className="Login">Log in</h3>{" "}
         </Link>
-        <h3 className="Login">Search</h3>
+        <h3 className="Login">
+          <input
+            style={{ paddingLeft: "10px" }}
+            onChange={handleSreache}
+            value={searchProduct}
+            placeholder="search..."
+          />
+          {searchProduct.length > 3 && (
+            <Link
+              onClick={(prev) => setMenuCardDiv(!prev)}
+              to={`/filterProduct/${searchProduct}`}
+            >
+              <button className="search_btn">
+                <SearchIcon className={classes.searchIcon} />
+              </button>
+            </Link>
+          )}
+        </h3>
         <div className="Login">
           <LanguageOutlinedIcon className={classes.IconButton} />
           <Select
@@ -308,9 +381,8 @@ export default function MenuCard() {
             onClick={(e) => setLanguage(e.target.value)}
             className={classes.IconButton}
           >
-            <MenuItem value={"english"}>english</MenuItem>
-            <MenuItem value={"русский"}>русский</MenuItem>
-            <MenuItem value={"uzbek"}>uzbek</MenuItem>
+            <MenuItem value={"en"}>english</MenuItem>
+            <MenuItem value={"ру"}>русский</MenuItem>
           </Select>
         </div>
         <div className="menu_Card_Icons">

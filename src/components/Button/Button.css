@@ -99,7 +99,21 @@
   margin: 25px 0;
 }
 
-@media (min-width: 320px) and (max-width: 568px) {
+.btn--modal {
+  width: 100%;
+  z-index: 20;
+}
+
+.junal_page_btn {
+  position: inherit;
+  bottom: 0;
+}
+
+.stepper2_form_btn {
+  margin: 10px;
+}
+
+@media (min-width: 0px) and (max-width: 568px) {
   .look_corusel_btn {
     width: 150px;
     padding: 2px;
@@ -109,7 +123,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 1100px) {
+@media (min-width: 0px) and (max-width: 1100px) {
   .look_corusel_btn {
     display: block;
   }

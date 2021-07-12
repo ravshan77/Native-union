@@ -23,7 +23,7 @@
   padding-top: 10px;
   height: 100vh;
   color: #fff;
-  z-index: 99999999999999999999999;
+  z-index: 9999999999999999999999999;
 }
 
 .menuCard a {
@@ -76,4 +76,14 @@
 
 .menu_Card_Icons a {
   padding: 10px;
+}
+
+.search_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  outline: none;
+  border: none;
+  height: 20px;
 }

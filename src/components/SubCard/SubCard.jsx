@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 import "./SubCard.css";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import Button from "../Button/Button"
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-
+import Button from "../Button/Button";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addCard,
+  decreaseCard,
+  removeCard,
+} from "../../store/item/item-action";
+import Empty from "../../assets/empty card/i.webp";
 
 const useStyles = makeStyles((theme) => ({
   IconButton: {
@@ -14,74 +19,90 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SubCard(setSubCardDiv) {
+export default function SubCard({ setSubCardDiv }) {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
-
+  // Total cost
+  const cards = useSelector((state) => state.StoreData.card);
+  const total = cards.map((card) => card.totalCost * card.count);
+  const total_totalCost = total.reduce((a, b) => a + b, 0);
 
   return (
-//     <ClickAwayListener
-//     mouseEvent="onMouseDown"
-//     touchEvent="onTouchStart"
-//     // onClick={handleClickAway}
-//   >
     <div className="SubCard">
-        <div className="subCard">
-            <div className="Sub_cards">
-                <div className="cards_img_box">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/9050/4822/products/RiseDock_2_120x.png?v=1622774505" />
-                </div>
-                <div className="cards_info_box">
-                    <div className="product_title">PRODUCT</div>
-                    <div className="product_cost">145 000 sum</div>
+      {total.length > 0 ? (
+        <>
+          {" "}
+          <div className="subCard">
+            {cards.map((card) => {
+              return (
+                <div className="Sub_cards">
+                  <div className="cards_img_box">
+                    <img src={card.img} />
+                  </div>
+                  <div className="cards_info_box">
+                    <div className="product_title">{card.name}</div>
+                    <div className="product_cost">
+                      {new Intl.NumberFormat("en-US", {
+                        style: "decimal",
+                      }).format(
+                        (card.count < 2 ? card.cost : card.totalCost).toFixed(2)
+                      )} uzs
+                    </div>
                     <div className="product_btns">
-                    <div className="calc_item">
-                        <button>
-                        <AddIcon />
+                      <div className="calc_item">
+                        <button onClick={() => dispatch(addCard({ ...card }))}>
+                          <AddIcon />
                         </button>
-                        <span>{1}</span>
-                        <button>
-                        <RemoveIcon />
+                        <span>{card.count}</span>
+                        <button onClick={() => dispatch(decreaseCard(card))}>
+                          <RemoveIcon />
                         </button>
-                    </div>
-                    <div className="remove_item">
+                      </div>
+                      <div
+                        className="remove_item"
+                        onClick={() => dispatch(removeCard(card))}
+                      >
                         <button>Remove</button>
+                      </div>
                     </div>
-                    </div>
+                  </div>
                 </div>
-            </div>
-            
-            <div className="Sub_cards">
-                <div className="cards_img_box">
-                    <img src="https://cdn.shopify.com/s/files/1/0066/9050/4822/products/RiseDock_0046_120x.jpg?v=1622774499" />
-                </div>
-                <div className="cards_info_box">
-                    <div className="product_title">PRODUCT</div>
-                    <div className="product_cost">200 000 sum</div>
-                    <div className="product_btns">
-                    <div className="calc_item">
-                        <button>
-                        <AddIcon />
-                        </button>
-                        <span>{2}</span>
-                        <button>
-                        <RemoveIcon />
-                        </button>
-                    </div>
-                    <div className="remove_item">
-                        <button>Remove</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-      </div><hr></hr>
-      <div className="Sub_GoStore">
-          <div className="total_cost">
+              );
+            })}
+          </div>{" "}
+          <hr></hr>
+          <div className="Sub_GoStore">
+            <div className="total_cost">
               <p>Total: </p>
-              <p>345 000 uzs</p>
+              <p>
+                {new Intl.NumberFormat("en-US", { style: "decimal" }).format(
+                  total_totalCost.toFixed(2)
+                )}{" "}
+                uzs
+              </p>
+            </div>
+            <Link to="/store">
+              <Button
+                buttonStyle="btn--white"
+                buttonPosition="sub_card_btn"
+                buttonSize="btn--large"
+                onClick={(prev) => setSubCardDiv(!prev)}
+              >
+                view cart
+              </Button>
+            </Link>
+          </div>{" "}
+        </>
+      ) : (
+        <div className="subCard">
+          <div className="empty_Card">
+            <div className="empty_Card_img">
+              <img src={Empty} />
+            </div>
           </div>
-          <Button buttonStyle="btn--white" buttonPosition="sub_card_btn" buttonSize="btn--large">view cart</Button>
-      </div>
+        </div>
+      )}
     </div>
   );
 }
