@@ -1,71 +1,100 @@
-# Getting Started with Create React App
+# Native union
+> Outline a brief description of your project.
+> Live demo [_here_](https://bravopizzauz.netlify.app/). 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Screenshots](#screenshots)
+* [Setup](#setup)
+* [Usage](#usage)
+* [Project Status](#project-status)
+* [Acknowledgements](#acknowledgements)
+* [Contact](#contact)
+<!-- * [License](#license) -->
 
-## Available Scripts
 
-In the project directory, you can run:
+## General Information
+- The project is designed for online ordering and delivery of telephone, notebook, headset, telephone accessories.
+- Ordering without people leaving the house.
+- The main goal of my project is to gain experience.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
+- Html - version 5
+- Css - version 4
+- Java Script - ECMAScript 2018
+- React - version 17.0.2
+- React-router-dom - version 5.2.0
+- React-hook-form - version 7.6.0
+- React-number-format - version  4.5.5
+- React-redux - version 7.2.4
+- Firebase - version 8.7.0
+- React-firebase-hooks - version 3.0.4
+- React-firebaseui - version 5.0.2
+- i18nex - version 20.3.2
+- i18next-browser-languagedetector - version 6.1.2
+- i18next-http-backend - version 1.2.6
+- Redux - version 4.1.0
+- Redux-devtools-extension - version 2.13.9
+- Redux-logger - version 3.0.6
+- Redux-persist - version 6.0.0
+- Redux-thunk - version 2.3.0
+- Thunk - version 0.0.1
+- Material-ui - version 4.11.4
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Features
+List the ready features here:
+- Firebase authentication
+- Matreal UI components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Screenshots
+![Example screenshot](https://ravshanfayziyev.netlify.app/assets/img/portfolio/union.png)
+<!-- If you have screenshots you'd like to share, include them here. -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup
+What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Proceed to describe how to install / setup one's local environment / get started with the project.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In the environment terminal, perform the following operation in sequence:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1) git clone https://github.com/ravshan77/Native-union.git
+2) npm i
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Usage
+How does one go about using it?
+Provide various use cases and code examples here.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+In the environment terminal, perform the following operation in sequence:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1) npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Status
+Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
 
-### Code Splitting
+Ready for production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Acknowledgements
+Give credit here.
+- This project was inspired by...
+- This project was based on [this tutorial](https://www.nativeunion.com/).
+- Many thanks to...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Contact
+Created by [@RavshanFayziyev](https://ravshanfayziyev.netlify.app/) - feel free to contact me!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# nativeunion.com
+<!-- Optional -->
+<!-- ## License -->
+<!-- This project is open source and available under the [... License](). -->
